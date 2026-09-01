@@ -27,8 +27,11 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
+  
+- task: AzureWebApp@1
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    azureSubscription: 'TODOCONN'
+    appType: 'webApp'
+    appName: 'todo-sohqmrodoemeg-app'
+    package: '$(build.artifactStagingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
