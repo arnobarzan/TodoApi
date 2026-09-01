@@ -40,5 +40,5 @@ steps:
     azureSubscription: 'TODOCONN'
     appType: 'webApp'
     appName: 'todo-sohqmrodoemeg-app'
-    package: '$(build.artifactStagingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
