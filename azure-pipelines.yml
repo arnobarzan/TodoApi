@@ -15,12 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -39,5 +33,5 @@ steps:
     azureSubscription: 'TODOCONN'
     appType: 'webApp'
     appName: 'todo-sohqmrodoemeg-app'
-    package: '$(Build.ArtifactStagingDirectory)/**/TodoApi.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
